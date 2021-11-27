@@ -14,8 +14,8 @@ with open('/home/ec2-user/sqft_data.csv','wb') as input_file:
 #Writing conetnt of the file to S3 bucket - (use s3_client.upload_file, also send sns notification)
 s3 = boto3.resource('s3')
 bucketname = 'sqft-data-bucket'
-print(bucketname)
+
 filetoupload = '/home/ec2-user/sqft_data.csv'
 s3_filename = 'prod/data/sqft_data.csv'
-print(s3_filename)
+
 s3.meta.client.upload_file(filetoupload,bucketname,s3_filename)
